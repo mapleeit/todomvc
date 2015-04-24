@@ -39,7 +39,7 @@ angular.module('todomvc')
 						incompleteTodos.push(todo);
 					}
 				});
-
+				// 深拷贝，angular.copy(source, dst);
 				angular.copy(incompleteTodos, store.todos);
 
 				return $http.delete('/api/todos')

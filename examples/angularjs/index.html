@@ -18,8 +18,10 @@
 						<input id="new-todo" placeholder="What needs to be done?" ng-model="newTodo" ng-disabled="saving" autofocus>
 					</form>
 				</header>
+				<!--ng-cloak:防止在加载的时候各个部件逐渐加载而导致的用户体验不佳，实现方法是先整体调成display:none等待加载完成后再删去这条属性-->
 				<section id="main" ng-show="todos.length" ng-cloak>
 					<input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
+					<!--???这个label是做什么用的-->
 					<label for="toggle-all">Mark all as complete</label>
 					<ul id="todo-list">
 						<li ng-repeat="todo in todos | filter:statusFilter track by $index" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
